@@ -1,7 +1,13 @@
+*{
+    box-sizing: border-box;
+}
 body{
     font-family: "quicksand";
     margin: 0;
     padding: 0;
+}
+header{
+    display: inline;
 }
 .jumbotron{
     font-size: 20px;
@@ -11,6 +17,8 @@ body{
     color: white;
 }
 nav{
+    position: sticky;
+    top: 0;
     background-color: #00a2c6;
     padding: 5px;
 }
@@ -26,13 +34,18 @@ nav a:hover{
 .profile header{
     text-align: center;
 }
+nav ul{
+    display: flex;
+    gap: 2rem;
+}
 nav li{
-    display: inline;
     list-style-type: none;
-    margin-right: 20px;
 }
 main{
     padding: 20px;
+    overflow: auto;
+    display: flex;
+    gap: 1.5rem;
 }
 h2,h3{
     color: #00a2c6;
@@ -70,7 +83,31 @@ footer{
     width: 200px;
 }
 .card{
-    margin-top: 20px;
     padding: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.575);
+}
+#content{
+    flex: 5;
+    display: flex;
+    flex-flow: column-reverse;
+    gap: 1rem 2rem;
+}
+aside{
+    flex: 1;
+}
+@media screen and (max-width: 1200px) {
+    main{
+        flex-flow: column nowrap;
+    }
+    main aside{
+        align-self: center;
+    }
+}
+@media screen and (max-width: 768px){
+    nav ul{
+        justify-content: center;
+    }
+    main aside{
+        align-self: stretch;
+    }
 }
